@@ -1,0 +1,56 @@
+(I am aware that I was supposed to just measure the number of chars, but I have
+been programming for a long time and wanted to challenge myself.
+The "byte length" outputted by this program is the number of chars.)
+
+For basic ASCII strings, characters are equivalent to bytes.
+That will be easy to measure--just loop through the string until you get to a
+NULL, stop the loop, and return the index you stopped at.
+
+However, modern terminals usually use UTF-8, which uses different numbers of
+bytes to represent different characters. It would be very tedious to reliably
+count what humans consider "characters," so I will instead count codepoints.
+
+It is possible to have an invalid UTF-8 string.
+In that case, I will return -(index + 1), where index is the index of the error.
+
+If I understand correctly, the table at
+https://en.wikipedia.org/wiki/UTF-8#Encoding
+shows the possible UTF-8 byte sequences.
+
+I will check the relevant bits by masking out the others with bitwise AND.
+
+I will have the UTF-8 length function take the number of bytes in the string as
+an argument in order to skip the null check. Theoretically, this could allow it
+to measure strings that contain null characters, though that won't happen in
+this specifics program.
+
+I will make both of these different functions, since they do different things
+and have distinct use-cases.
+
+I promise I thought most of this through before writing the code, but I did
+realize later into writing that command-line arguments exist and would be more
+convenient than reading the data from standard in, but this time, I actually
+implemented that better idea.
+
+I also had the program return the number of invalid strings passed, which will
+almost always be zero but it's nice to have an error code since I have to return
+something anyway!
+
+--------------------------------------------------------------------------------
+
+These were my test strings and their results.
+Do not include the surrounding whitespace.
+  Hello, world!
+    13 bytes, 13 codepoints
+    This containts only basic ASCII codepoints,
+    but not all humans would consider a space a "character."
+  Pokémon
+    8 bytes, 7 codepoints
+    The accented E is two bytes long.
+  👹👹👹
+    12 bytes, 3 codepoints
+    The Japanese Ogres are 3 bytes each.
+  ( ͡° ͜ʖ ͡°)
+    17 bytes, 11 codepoints
+    When viewed in a font that renders it correctly the Lenny face looks like
+    maybe five characters, but it actually uses several combining characters.

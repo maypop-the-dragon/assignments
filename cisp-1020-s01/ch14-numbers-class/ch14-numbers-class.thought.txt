@@ -1,0 +1,24 @@
+I am going to deviate slightly from the requirements for this one. You see, it
+says that it should describe "dollar amounts," but the example descriptions do
+not say " dollars". I find that absurd, since what even makes it a dollar amount
+if it doesn't say " dollars"? For that reason, I'm adding " dollars" to the end.
+
+Since I'm such a tryhard, I will support numbers outside that range as well.
+So that I can do that effectively, I will use std::int64_t instead of int for
+the amount so that I can know for sure what the possible range is.
+
+The print function will take the stream as an argument because you might want to
+store the result in a string or something instead of printing it.
+
+I'll take the amounts as command-line arguments.
+
+For simplicity, I will use std::sint64 from cstdint.h so that I know for sure
+what the range of the numbers is.
+
+It's complicated to explain in English, but I promise I made a plan for how I
+would describe the numbers before doing it. The process and some of the reasons
+things are done the way they are are somewhat in the code comments.
+
+I did actually come up with some good ideas from this but the entire time I was
+visually imagining what the code would look like in my mind because I'm so used
+to just writing code.

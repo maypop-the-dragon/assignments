@@ -1,0 +1,19 @@
+I picked this one because I thought I could have some fun with it by making the
+output look like one of those marquee thingies using control codes.
+
+I feel like the instructions for the assignment lay out how the program should
+work pretty well, so I won't be super detailed on that, except that I will
+actually put the movie data structures into an array instead of two separate
+variables so that you could theoretically add more movies later. All the movies
+will be displayed on the same marquee, so the entire array will be passed.
+
+Yeah, I wrote the program without thinking everything through again. I find it
+kind of tedious to plan without being able to experiment while doing so, plus
+this particular one needed a lot of tweaking to make the design look good. The
+program is slightly worse for it. I could rewrite it to be better with the
+insights I have gained from my mistakes but I don't feel like doing that now.
+
+For the movies, I chose "Monty Python and the Holy Grail" because it's a classic
+and "Night of the Day of the Dawn of the Son of the Bride of the Return of the
+Terror" because its title is very long to demonstrate the text wrapping
+functionality I added.

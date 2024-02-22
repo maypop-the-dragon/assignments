@@ -1,0 +1,23 @@
+The instructions describe the class quite thoroughly, so I have very little to
+write here. I will name the accessors getWhatever, where Whatever is the member
+being accessed. I will mark all of the functions as inline because they are so
+simple that it would probably be better in terms of both runtime performance and
+binary size to inline them. I will use an std::string for the make.
+
+The "brake" function will also stop the speed from going negative, since 1. it's
+called speed, not velocity, and 2. that wouldn't be how brakes actually work.
+
+I will also write an extra function that formats a year given as a signed
+integer into an std::string, representing 0 and below as "BC," for humor.
+
+I'll use std::cout to display the values, as usual, and I will also display the
+make and model before the other stuff.
+
+This part I thought of near the end, but I made the braking loop actually break
+once the speed reaches zero, rather than after a fixed number of iterations.
+This way, you can change the number of iterations of acceleration and the car
+would still stop. This is... more... maintainable..?
+
+I also used std::endl rather than just '\n' specifically to slow down the output
+slightly, creating a nice, smooth, line-by-line effect if you use a large number
+of iterations. This is not noticeable at all with 5 iterations, though.

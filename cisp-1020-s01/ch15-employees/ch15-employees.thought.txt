@@ -1,0 +1,90 @@
+I have been asked to assume the reader does not know what the assignment was.
+That said, I chose to do TODO.
+
+For this assignment, I am supposed to write two different programs, which share
+two of the same exact classes. To stay D.R.Y and keep my code reusable, I'll put
+my classes in "ch15-employees.h" and just #include them in my actual programs.
+Nobody will really use my code but as far as I know doing this is good practice.
+I know it's a lot nicer in my personal projects at least! I'll also put them in
+a namespace to avoid namespace pollution (I use big boy words now).
+
+I am supposed to write these two classes representing factory employees:
+    Employee
+        A base class for employees at a factory. It has these three members:
+            - Employee Number
+            - Employee's Name
+            - Hire Date
+    ProductionWorker
+        A kind of employee who presumably works on producing something. Members:
+            - Hourly Pay
+            - Shift (Day or Night)
+...then write a program that demonstrates the ProductionWorker class.
+
+After that, I am meant to write one of these two classes:
+    ShiftSupervisor
+        A kind of employee who supervises a shift.
+        They earn an annual salary, as well as a yearly bonus if their shift
+        meets production goals. Members:
+            - Annual Salary
+            - Annual Production Bonus "that a shift supervisor has earned"
+                I am really not sure what that last part means. It would make
+                sense to me that it would be the bonus they WOULD earn, not the
+                one they HAVE earned, but maybe we are actually meant to be
+                keeping track of employees' pay. For tax purposes or something?
+    TeamLeader
+        A kind of employee who leads a small team.
+        They earn hourly pay as well as a fixed monthly bonus, and are required
+        to attend a minimum number of hours of training per year. Members:
+            - Hourly Pay
+            - Monthly Bonus Amount
+            - Required Number of Training Hours
+            - Number of Training Hours Attended
+                This one specifically references tracking state, which makes me
+                think that maybe the description of the annual production bonus
+                member was not a mistake.
+...and write a program that demonstrates this third class.
+
+I will go with the TeamLeader class for my second program because it's less
+ambiguous and explicitly has state to keep track of, which will help with ideas.
+For number types, I just chose what I thought had a reasonable enough range.
+
+For Employee:
+    The name is an std::string.
+    The ID number is an std::uint64_t so it can have a bunch of digits.
+    I represent the hire date using three separate fields for the year,
+    month, and day. The month and day both start at 1 rather than 0, and the
+    year is the full year (such as "2024").
+
+    All of these fields are public, partly because I just don't care anymore.
+
+For ProductionWorker:
+    The hourly pay is an std::uint16_t representing a number of cents.
+    The shift is a custom Shift enum with DAY and NIGHT values.
+
+    These too are public, because I just don't give a hoot!
+
+For TeamLeader:
+    The monthly bonus is a float, just like the hourly pay.
+    The required and attended training hours are both std::uint8_t.
+
+    These are public also.
+
+For my ProductionWorker program, I will write a program that randomly fires half
+of the workers from a hardcoded list of sample data. (It's "dark humor.")
+    I will define a list of 30 ProductionWorkers as a static variable.
+    The data will be generated using ChatGPT because I would rather not have to
+    write a bunch of arbitrary names and numbers myself.
+    I promise I didn't use ChatGPT for anything else.
+
+    I will divide the length of this list by two, then repeat the following
+    that number of times:
+        1. Select a random index in the worker list.
+        2. Print out the information for that worker in a very evil tone.
+        3. Delete it from the list.
+
+For my TeamLeader Program, I give up.
+
+I am completely aware that this is absolutely terrible.
+This assignment was a real struggle for me because I had to come up with a
+problem for a solution rather than a solution for a problem,
+and I eventually just gave up.

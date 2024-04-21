@@ -1,2 +1,7 @@
+# By convention, I will name all of my executables "exe".
+# This way, they can be ignored and NOT committed.
+**/exe
+**/*.exe
+
 # Unfinished. Won't commit this yet.
 cisp/ch16-linked-list

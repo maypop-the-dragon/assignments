@@ -1,0 +1,94 @@
+For this assignment I am supposed to write a linked list and then write certain
+programs that utilize it. There are three parts to the assignment.
+
+I spent a lot of time worrying about trying to make my linked list hard to mess
+up when using it, but I'll just stop worrying so much about that.
+It's not like anyone will seriously use it.
+
+I started by planning out the entire public API
+without writing any function bodies or private things...
+
+| // This is a namespace for my "Bad Linked List,"
+| // so called because you probably shouldn't use it for any serious project.
+| namespace bll {
+|   template<class T> class Node {
+|     public:
+|       // The value attached to this node.
+|       // You can access or change it at any time.* (see List)
+|       T value;
+|   };
+|
+|   // A doubly linked list containing values of type `T`.
+|   //
+|   // Do not call the list's methods with nodes that aren't actually in it,
+|   // as that will cause issues. Also, do not try to access nodes in lists that
+|   // have already been dropped, since their memory will have been freed.
+|   template<class T> class List {
+|     public:
+|       // Create a new empty list.
+|       inline List() {}
+|       // Copy an existing linked list.
+|       inline List(List list_to_copy) {}
+|       inline ~List() {}
+|
+|       // Check if the list is empty.
+|       inline bool isEmpty() {}
+|
+|       // Attempt to get the first node in the list.
+|       // If the list is empty, this returns a null pointer.
+|       inline Node<T>* getFirstNode() {}
+|       // Attempt to get the last node in the list.
+|       // If the list is empty, this returns a null pointer.
+|       inline Node<T>* getLastNode() {}
+|
+|       // Get the node immediately after the given one.
+|       // If there is no next node, this returns a null pointer.
+|       // If the given node pointer is null, it CRASHES.
+|       inline Node<T>* getNodeAfter(Node<T>* previous) {}
+|       // Get the node immediately before the given one.
+|       // If there is no previous node, this returns a null pointer.
+|       // If the given node pointer is null, it CRASHES.
+|       inline Node<T>* getNodeBefore(Node<T>* next) {}
+|
+|       // Remove the given node from the list.
+|       // If the given node pointer is null, this CRASHES.
+|       inline void remove(Node<T>*) {}
+|
+|       // Add a new node with the given value before the given node.
+|       // If the given node pointer is null, this CRASHES.
+|       inline Node<T>* insertValueAfter(Node<T>* previous, T value) {}
+|       // Add a new node with the given value after the given node.
+|       // If the given node pointer is null, this CRASHES.
+|       inline Node<T>* insertValueBefore(T value, Node<T>* next) {}
+|
+|       // Add a new node with the given value at the end of the list.
+|       inline Node<T>* append(T value) {}
+|       // Add a new node with the given value at the beginning of the list.
+|       inline Node<T>* prepend(T value) {}
+|
+|       // Print the list to the given stream.
+|       //
+|       // This function's source code also serves as a decent example of
+|       // how one might iterate over one of these linked lists!
+|       void print(std::ostream& destination) {}
+|   };
+| }
+
+I do hope that's an acceptable form of planning.
+
+The first part of the assignment says that I am supposed to write a linked list
+class to hold a series of integers. It should have methods to append, insert,
+and delete nodes, as well as a destructor. I think this my fits those criteria.
+It also says to demonstrate the class.
+
+The second part says to add a print method and demonstrate it by creating a
+list, adding items to it. and then printing the list.
+
+The third part says to add a copy constructor.
+I tried to do that but I couldn't possibly figure out why it didn't work
+so I just gave up.
+
+My program creates the list { -3, -2, -1, 0, 1, 2, 3 } in an overcomplicated way
+that uses all of the list's methods except isEmpty and getNodeBefore, then
+prints the list. There are comments above each step showing what the list is
+supposed to look like after that step.

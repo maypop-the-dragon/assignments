@@ -1,0 +1,19 @@
+Complete #1, #2, #3 or #4, Remember to name files descriptively, complete the
+Critical Thinking first before coding, upload the Critical Thinking, the .cpp
+files, and a picture of the outputs.
+
+  1.Static Stack Template
+Write your own version of a class template that will create a static stack of
+any datatype. Demonstrate the class with a driver program.
+
+  2.Dynamic Stack Template
+Write your own version of a class template that will create a dynamic stack of
+any data type. Demonstrate the class with a driver program.
+
+  3.Static Queue Template
+Write your own version of a class template that will create a static queue of
+any data type. Demonstrate the class with a driver program.
+
+  4.Dynamic Queue Template
+Write your own version of a class template that will create a dynamic queue of
+any data type. Demonstrate the class with a driver program.

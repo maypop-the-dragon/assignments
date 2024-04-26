@@ -1,0 +1,64 @@
+I hope I understand correctly, but I think the assignment says I only have to do
+one of the four options. I have chosen to write a dynamic stack template.
+
+I found the Linked List assignment somewhat unsatisfying because there was no
+way to tell, just by running the program without looking at its code, that it
+even contained a linked list at all. For all you know, it could have just been
+hard-coded to print the integers -3 through 3.
+
+...so I want this program to let the user do operations on a stack in real time!
+
+I considered storing the stack's contents in a file, and using different
+subcommands for the different operations, but I would be unsatisfied with that
+because in that case it would be inefficient in every way to even bother using
+an actual stack data structure other than the file itself.
+
+...so it will be an REPL that understands the following commands:
+ - pop
+   Pop a line from the stack and display it.
+ - push <line ...>
+   Push a line of text onto the stack.
+ - show
+   Display the entire stack from top to bottom.
+
+This time, because I can, I want to make the API memory-safe, so here's
+the public interface I will use to implement all of that functionality:
+    // A dynamic stack containing values of type T.
+    template<class T> class Stack {
+        public:
+            // Create a new, empty stack.
+            inline Stack() {}
+
+            // Pop one item from the stack, if there are any.
+            // If there are no items, this function returns nothing.
+            inline std::optional<T> pop() {}
+
+            // Push one item onto the stack.
+            inline void push(T value) {}
+
+            // Execute a function for each item on the stack,
+            // starting at the top, going downwards, and ending at the bottom.
+            //
+            // The function can read the items, but not write them.
+            inline void forEach(void(*function)(const T&)) {}
+    };
+
+There is no way for the user to obtain a pointer to the items on the stack or
+mutate them, so it's very hard to mess it up in any way!
+
+The "pop" command will call the `pop` function. If it returned a value, it will
+display the value, with a minus sign as a bullet point. If it did not return a
+value, it will say so with an exclamation point as a bullet point.
+
+The "push" command will call the `push` function with a string containing all of
+the text after the space. It will not display any output because it only has one
+expected behavior--successfully pushing the given string onto the stack.
+
+The "show" command will call the `forEach` function, passing a function as an
+argument that just prints its argument with a plus sign as a bullet point.
+
+As for representation in memory, the Stack will just contain a pointer to the
+top item in the stack, which will be represented by a StackEntry.
+If said pointer is null, that means there are no items on the stack.
+A StackEntry will contain its value and a pointer to the stack entry below it.
+If said pointer is null, then it is the bottom entry.
